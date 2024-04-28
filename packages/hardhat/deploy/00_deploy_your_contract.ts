@@ -36,14 +36,14 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   const duelContract = await hre.ethers.getContract<Contract>("DuelContract", deployer);
 
   // Transfer ownership to your front end address
-  console.log("\n 🤹  Sending ownership to frontend address...\n");
-  const ownerTx = await duelContract .transferOwnership("0x5D70E3b540f58beCd10B74f6c0958b31e3190DA7");
+  // console.log("\n 🤹  Sending ownership to frontend address...\n");
+  // const ownerTx = await duelContract .transferOwnership("0x5D70E3b540f58beCd10B74f6c0958b31e3190DA7");
   
-  console.log("\n       confirming...\n");
-  const ownershipResult = await ownerTx.wait();
-  if (ownershipResult) {
-    console.log("✅ ownership transferred successfully!\n");
-  }
+  // console.log("\n       confirming...\n");
+  // const ownershipResult = await ownerTx.wait();
+  // if (ownershipResult) {
+  //   console.log("✅ ownership transferred successfully!\n");
+  // }
 };
 
 export default deployYourContract;
