@@ -4,6 +4,7 @@ pragma solidity >=0.8.0 <0.9.0;
 // Useful for debugging. Remove when deploying to a live network.
 import "hardhat/console.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
 /**
  * @title Duel
@@ -14,6 +15,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  */
 
 contract DuelContract is Ownable {
+    AggregatorV3Interface internal priceFeed;
 	uint256 public betIdCounter = 0;
     uint256 public immutable timeoutValueForOneMinute = 60; // Bet cannot be accepted in the last minute 
 
@@ -57,6 +59,17 @@ contract DuelContract is Ownable {
 		address indexed loser,
 		uint256 amount
 	);
+
+    /**
+     * Network: Sepolia Testnet
+     * Aggregator: ETH/USD
+     * Address: 0x59F1ec1f10bD7eD9B938431086bC1D9e233ECf41
+     */
+    constructor() {
+        priceFeed = AggregatorV3Interface(
+            0x59F1ec1f10bD7eD9B938431086bC1D9e233ECf41
+        );
+    }
 
 	modifier onlyBoss() {
 		require(msg.sender == owner(), "Sorry, you're not the boss!");
@@ -107,7 +120,19 @@ contract DuelContract is Ownable {
 		emit BetDeleted(_betId);
 	}
 
-	function finishBet(uint256 _betId, uint256 _priceAtBetFinished) external onlyBoss {
+	// If we need L2 layer modification for datafeed, I'll use this: https://docs.chain.link/data-feeds/l2-sequencer-feeds
+    function getChainlinkDataFeedLatestAnswer() public view returns (int) {
+        (
+            /* uint80 roundID */,
+            int answer,
+            /*uint startedAt*/,
+            /*uint timeStamp*/,
+            /*uint80 answeredInRound*/
+        ) = priceFeed.latestRoundData();
+        return answer;	// with 18 decimals
+    }
+
+	function _finishBet(uint256 _betId, uint256 _priceAtBetFinished) public {
 		Bet storage bet = bets[_betId];
 		require(bet.state == BetState.ACCEPTED, "Bet is not in ACCEPTED state");
 		require(bet.targetTimestamp < block.timestamp, "Bet is not completed yet");
@@ -122,6 +147,11 @@ contract DuelContract is Ownable {
 			payable(bet.player1).transfer(19 * bet.amount / 10);	// 10 percent of the total bet amount will reside in the contract
 			emit BetFinished(_betId, bet.player2, bet.player1, bet.amount);
 		}
+	}
+
+	function finishBet(uint256 _betId) external {
+		uint256 currentETHPrice = uint256(getChainlinkDataFeedLatestAnswer()); 
+		_finishBet(_betId, currentETHPrice);
 	}
 
 	function withdraw() external onlyBoss {
