@@ -6,7 +6,7 @@ type BetDetails = {
   isCompleted: boolean;
 }
 
-const duelAddress = '0x89FCa5aB572721F67a9A7Ef61d9607441E15365d'
+const duelAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'
 const scheduledBets: Map<bigint, BetDetails> = new Map()
 
 
@@ -51,7 +51,7 @@ async function rescheduleBets(duelContract: DuelContract) {
 }
 
 
-async function listenToBetCreated() {
+export async function listenToBetCreated() {
   const duelContract = await hre.ethers.getContractAt("MyContract", duelAddress) as unknown as DuelContract;
 
   console.log("Listening to BetCreated events...");
@@ -70,7 +70,3 @@ async function listenToBetCreated() {
     });
 
 }
-
-
-listenToBetCreated().catch(console.error);
-
