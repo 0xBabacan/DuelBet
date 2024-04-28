@@ -30,7 +30,7 @@ const config: HardhatUserConfig = {
       },
     },
   },
-  defaultNetwork: "sepolia",
+  defaultNetwork: "hardhat",
   namedAccounts: {
     deployer: {
       // By default, it will take the first Hardhat account as the deployer
@@ -47,86 +47,91 @@ const config: HardhatUserConfig = {
       },
       gas: 1800000,
     },
-    mainnet: {
-      url: `https://eth-mainnet.alchemyapi.io/v2/${providerApiKey}`,
-      accounts: [deployerPrivateKey],
-    },
-    sepolia: {
-      url: `https://eth-sepolia.g.alchemy.com/v2/${providerApiKey}`,
-      accounts: [deployerPrivateKey],
-    },
-    goerli: {
-      url: `https://eth-goerli.alchemyapi.io/v2/${providerApiKey}`,
-      accounts: [deployerPrivateKey],
-    },
-    arbitrum: {
-      url: `https://arb-mainnet.g.alchemy.com/v2/${providerApiKey}`,
-      accounts: [deployerPrivateKey],
-    },
-    arbitrumGoerli: {
-      url: `https://arb-goerli.g.alchemy.com/v2/${providerApiKey}`,
-      accounts: [deployerPrivateKey],
-    },
-    optimism: {
-      url: `https://opt-mainnet.g.alchemy.com/v2/${providerApiKey}`,
-      accounts: [deployerPrivateKey],
-    },
-    optimismGoerli: {
-      url: `https://opt-goerli.g.alchemy.com/v2/${providerApiKey}`,
-      accounts: [deployerPrivateKey],
-    },
-    polygon: {
-      url: `https://polygon-mainnet.g.alchemy.com/v2/${providerApiKey}`,
-      accounts: [deployerPrivateKey],
-    },
-    polygonMumbai: {
-      url: `https://polygon-mumbai.g.alchemy.com/v2/${providerApiKey}`,
-      accounts: [deployerPrivateKey],
-    },
-    polygonZkEvm: {
-      url: `https://polygonzkevm-mainnet.g.alchemy.com/v2/${providerApiKey}`,
-      accounts: [deployerPrivateKey],
-    },
-    polygonZkEvmTestnet: {
-      url: `https://polygonzkevm-testnet.g.alchemy.com/v2/${providerApiKey}`,
-      accounts: [deployerPrivateKey],
-    },
-    gnosis: {
-      url: "https://rpc.gnosischain.com",
-      accounts: [deployerPrivateKey],
-    },
-    chiado: {
-      url: "https://rpc.chiadochain.net",
-      accounts: [deployerPrivateKey],
-    },
-    base: {
-      url: "https://mainnet.base.org",
-      accounts: [deployerPrivateKey],
-    },
-    baseGoerli: {
-      url: "https://goerli.base.org",
-      accounts: [deployerPrivateKey],
-    },
-    baseSepolia: {
-      url: "https://sepolia.base.org",
-      accounts: [deployerPrivateKey],
-    },
-    scrollSepolia: {
-      url: "https://sepolia-rpc.scroll.io",
-      accounts: [deployerPrivateKey],
-    },
-    scroll: {
-      url: "https://rpc.scroll.io",
-      accounts: [deployerPrivateKey],
-    },
-    pgn: {
-      url: "https://rpc.publicgoods.network",
-      accounts: [deployerPrivateKey],
-    },
-    pgnTestnet: {
-      url: "https://sepolia.publicgoods.network",
-      accounts: [deployerPrivateKey],
-    },
+    // scrollSepolia: {
+    //   url: "https://sepolia-rpc.scroll.io/" || "",
+    //   accounts:
+    //     process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    // },
+    // mainnet: {
+    //   url: `https://eth-mainnet.alchemyapi.io/v2/${providerApiKey}`,
+    //   accounts: [deployerPrivateKey],
+    // },
+    // sepolia: {
+    //   url: `https://eth-sepolia.g.alchemy.com/v2/${providerApiKey}`,
+    //   accounts: [deployerPrivateKey],
+    // },
+    // goerli: {
+    //   url: `https://eth-goerli.alchemyapi.io/v2/${providerApiKey}`,
+    //   accounts: [deployerPrivateKey],
+    // },
+    // arbitrum: {
+    //   url: `https://arb-mainnet.g.alchemy.com/v2/${providerApiKey}`,
+    //   accounts: [deployerPrivateKey],
+    // },
+    // arbitrumGoerli: {
+    //   url: `https://arb-goerli.g.alchemy.com/v2/${providerApiKey}`,
+    //   accounts: [deployerPrivateKey],
+    // },
+    // optimism: {
+    //   url: `https://opt-mainnet.g.alchemy.com/v2/${providerApiKey}`,
+    //   accounts: [deployerPrivateKey],
+    // },
+    // optimismGoerli: {
+    //   url: `https://opt-goerli.g.alchemy.com/v2/${providerApiKey}`,
+    //   accounts: [deployerPrivateKey],
+    // },
+    // polygon: {
+    //   url: `https://polygon-mainnet.g.alchemy.com/v2/${providerApiKey}`,
+    //   accounts: [deployerPrivateKey],
+    // },
+    // polygonMumbai: {
+    //   url: `https://polygon-mumbai.g.alchemy.com/v2/${providerApiKey}`,
+    //   accounts: [deployerPrivateKey],
+    // },
+    // polygonZkEvm: {
+    //   url: `https://polygonzkevm-mainnet.g.alchemy.com/v2/${providerApiKey}`,
+    //   accounts: [deployerPrivateKey],
+    // },
+    // polygonZkEvmTestnet: {
+    //   url: `https://polygonzkevm-testnet.g.alchemy.com/v2/${providerApiKey}`,
+    //   accounts: [deployerPrivateKey],
+    // },
+    // gnosis: {
+    //   url: "https://rpc.gnosischain.com",
+    //   accounts: [deployerPrivateKey],
+    // },
+    // chiado: {
+    //   url: "https://rpc.chiadochain.net",
+    //   accounts: [deployerPrivateKey],
+    // },
+    // base: {
+    //   url: "https://mainnet.base.org",
+    //   accounts: [deployerPrivateKey],
+    // },
+    // baseGoerli: {
+    //   url: "https://goerli.base.org",
+    //   accounts: [deployerPrivateKey],
+    // },
+    // baseSepolia: {
+    //   url: "https://sepolia.base.org",
+    //   accounts: [deployerPrivateKey],
+    // },
+    // scrollSepolia: {
+    //   url: "https://sepolia-rpc.scroll.io",
+    //   accounts: [deployerPrivateKey],
+    // },
+    // scroll: {
+    //   url: "https://rpc.scroll.io",
+    //   accounts: [deployerPrivateKey],
+    // },
+    // pgn: {
+    //   url: "https://rpc.publicgoods.network",
+    //   accounts: [deployerPrivateKey],
+    // },
+    // pgnTestnet: {
+    //   url: "https://sepolia.publicgoods.network",
+    //   accounts: [deployerPrivateKey],
+    // },
   },
   // configuration for harhdat-verify plugin
   etherscan: {
