@@ -208,12 +208,12 @@ const BetHistory = () => {
       {isLoadingHistory ? (
         <strong> Loading... </strong>
       ) : (
-        <div className="border border-white/40 p-4 rounded">
+        <div className=" border-purple-400/40 p-4 rounded">
           <span className="mb-4 block text-2xl font-bold font-mono">Bet History</span>
           <div className="overflow-x-auto" style={{ flex: 1, fontSize: "1.0em" }}>
             <table className="table w-full border-white">
               <thead>
-                <tr className="font-mono text-white">
+                <tr className="font-mono text-white border-white/60">
                   <th>ID</th>
                   <th>// Created by</th>
                   <th>// Amount</th>
@@ -225,8 +225,8 @@ const BetHistory = () => {
               </thead>
               <tbody>
                 {betList.length === 0 ? (
-                  <tr>
-                    <td colSpan={4} className="text-center">
+                  <tr className="border-white/60">
+                    <td colSpan={7} className="text-center">
                       No events found
                     </td>
                   </tr>

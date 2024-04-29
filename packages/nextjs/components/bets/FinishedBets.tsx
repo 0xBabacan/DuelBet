@@ -37,12 +37,12 @@ const FinishedBets = () => {
         {isLoadingHistory ? (
           <strong> Loading... </strong>
         ) : (
-          <div className="border border-white/40 p-4 rounded">
+          <div className=" border-purple-400/40 p-4 rounded">
             <span className="mb-4 block text-2xl font-bold font-mono">Finished Bets</span>
             <div className="overflow-x-auto" style={{ fontSize: "1.0em" }}>
               <table className="table w-full border-white">
                 <thead>
-                  <tr className="font-mono text-white">
+                  <tr className="font-mono text-white border-white/60">
                     <th>Bet ID</th>
                     <th>// Winner Address</th>
                     <th>// Loser Address</th>
@@ -51,7 +51,7 @@ const FinishedBets = () => {
                 </thead>
                 <tbody>
                   {finishedBets.length === 0 ? (
-                    <tr>
+                    <tr className="border-white/60">
                       <td colSpan={4} className="text-center">
                         No events finished yet!
                       </td>
