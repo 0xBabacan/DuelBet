@@ -49,8 +49,9 @@ const config: HardhatUserConfig = {
       gas: 1800000,
     },
     scrollSepolia: {
-      url: "https://sepolia-rpc.scroll.io/" || "",
+      url: "https://scroll-sepolia.drpc.org" || "",
       accounts: [deployerPrivateKey],
+      timeout: 2000000,
     },
     // mainnet: {
     //   url: `https://eth-mainnet.alchemyapi.io/v2/${providerApiKey}`,
