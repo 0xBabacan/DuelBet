@@ -57,7 +57,7 @@ export const Footer = () => {
                         </clipPath>
                       </defs>
                     </svg>
-                    ETH =
+                    1 ETH =
                   </div>
                   <CurrencyDollarIcon className="h-4 w-4" />
                   <span>{nativeCurrencyPrice}</span>
