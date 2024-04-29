@@ -25,6 +25,40 @@ export const Footer = () => {
             {nativeCurrencyPrice > 0 && (
               <div>
                 <div className="btn btn-primary btn-sm font-normal gap-1 cursor-auto">
+                  <div className="flex gap-2">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_239_3)">
+                        <path
+                          d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z"
+                          fill="#627EEA"
+                        />
+                        <path d="M7.2179 1.75V5.63063L10.4978 7.09625L7.2179 1.75Z" fill="white" fill-opacity="0.602" />
+                        <path d="M7.21788 1.75L3.9375 7.09625L7.21788 5.63063V1.75Z" fill="white" />
+                        <path
+                          d="M7.2179 9.61103V12.2478L10.5 7.70703L7.2179 9.61103Z"
+                          fill="white"
+                          fill-opacity="0.602"
+                        />
+                        <path d="M7.21788 12.2478V9.61059L3.9375 7.70703L7.21788 12.2478Z" fill="white" />
+                        <path
+                          d="M7.2179 9.00066L10.4978 7.09622L7.2179 5.63147V9.00066Z"
+                          fill="white"
+                          fill-opacity="0.2"
+                        />
+                        <path
+                          d="M3.9375 7.09622L7.21788 9.00066V5.63147L3.9375 7.09622Z"
+                          fill="white"
+                          fill-opacity="0.602"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_239_3">
+                          <rect width="14" height="14" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    1 ETH =
+                  </div>
                   <CurrencyDollarIcon className="h-4 w-4" />
                   <span>{nativeCurrencyPrice}</span>
                 </div>

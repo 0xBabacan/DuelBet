@@ -30,3 +30,7 @@ p {
 .btn.btn-ghost {
   @apply shadow-none;
 }
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
