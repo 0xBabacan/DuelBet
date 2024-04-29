@@ -5,6 +5,7 @@ import type { NextPage } from "next";
 import Modal from "~~/components/Modal";
 import BetHistory from "~~/components/bets/BetHistory";
 import CreateBet from "~~/components/bets/CreateBet";
+import FinishedBets from "~~/components/bets/FinishedBets";
 
 const Home: NextPage = () => {
   // State to control modal visibility
@@ -67,13 +68,16 @@ const Home: NextPage = () => {
               </div>
             </div>
             {/* Button to open modal */}
-            <button onClick={openModal}>
-              <button className="uppercase relative py-2 px-8 text-black text-base font-bold overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-700 before:to-purple-400 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
+            <button className="mt-2 mb-8" onClick={openModal}>
+              <button className="uppercase relative py-4 px-16 text-black text-base font-bold overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-700 before:to-purple-400 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
                 create a bet
               </button>
             </button>
           </div>
-          <BetHistory />
+          <div className="grid gap-8">
+            <FinishedBets />
+            <BetHistory />
+          </div>
         </div>
       </div>
     </>
