@@ -30,11 +30,12 @@ const config: HardhatUserConfig = {
       },
     },
   },
-  defaultNetwork: "hardhat",
+  defaultNetwork: "scrollSepolia",
   namedAccounts: {
     deployer: {
       // By default, it will take the first Hardhat account as the deployer
       default: 0,
+      // 1:0, 
     },
   },
   networks: {
@@ -47,11 +48,10 @@ const config: HardhatUserConfig = {
       },
       gas: 1800000,
     },
-    // scrollSepolia: {
-    //   url: "https://sepolia-rpc.scroll.io/" || "",
-    //   accounts:
-    //     process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
-    // },
+    scrollSepolia: {
+      url: "https://sepolia-rpc.scroll.io/" || "",
+      accounts: [deployerPrivateKey],
+    },
     // mainnet: {
     //   url: `https://eth-mainnet.alchemyapi.io/v2/${providerApiKey}`,
     //   accounts: [deployerPrivateKey],
@@ -135,12 +135,22 @@ const config: HardhatUserConfig = {
   },
   // configuration for harhdat-verify plugin
   etherscan: {
-    apiKey: `${etherscanApiKey}`,
+    apiKey: `${'RG7ATBQFBIQCZFR5HGG17GZ97V36AIJCI9'}`,
+    customChains: [
+      {
+        network: "scrollSepolia",
+        chainId: 534351,
+        urls: {
+          apiURL: "https://api-sepolia.scrollscan.com/api",
+          browserURL: "https://sepolia.scrollscan.com/"
+        }
+      }
+    ]
   },
   // configuration for etherscan-verify from hardhat-deploy plugin
   verify: {
     etherscan: {
-      apiKey: `${etherscanApiKey}`,
+      apiKey: `${'RG7ATBQFBIQCZFR5HGG17GZ97V36AIJCI9'}`,
     },
   },
   sourcify: {
@@ -149,3 +159,8 @@ const config: HardhatUserConfig = {
 };
 
 export default config;
+
+// /** @type import('hardhat/config').HardhatUserConfig */
+// module.exports = {
+//   solidity: "0.8.17",
+// };
