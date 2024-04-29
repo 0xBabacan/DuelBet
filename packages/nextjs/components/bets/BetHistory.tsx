@@ -208,19 +208,19 @@ const BetHistory = () => {
       {isLoadingHistory ? (
         <strong> Loading... </strong>
       ) : (
-        <div>
-          <span className="mb-4 block text-2xl font-bold">Bet History</span>
-          <div className="overflow-x-auto rounded-xl" style={{ flex: 1, fontSize: "1.0em" }}>
-            <table className="table w-full">
+        <div className="border border-white/40 p-4 rounded">
+          <span className="mb-4 block text-2xl font-bold font-mono">Bet History</span>
+          <div className="overflow-x-auto" style={{ flex: 1, fontSize: "1.0em" }}>
+            <table className="table w-full border-white">
               <thead>
-                <tr className="bg-primary text-center" style={{ fontSize: "1.2em" }}>
+                <tr className="font-mono text-white">
                   <th>ID</th>
-                  <th>Created by</th>
-                  <th>Amount</th>
-                  <th>Price</th>
-                  <th>Bet</th>
-                  <th>Deadline</th>
-                  <th>Status</th>
+                  <th>// Created by</th>
+                  <th>// Amount</th>
+                  <th>// Price</th>
+                  <th>// Bet</th>
+                  <th>// Deadline</th>
+                  <th>// Status</th>
                 </tr>
               </thead>
               <tbody>

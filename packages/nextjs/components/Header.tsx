@@ -24,11 +24,11 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/finishedBets",
     icon: <TrophyIcon className="h-4 w-4" />,
   },
-  {
-    label: "Debug Contracts",
-    href: "/debug",
-    icon: <BugAntIcon className="h-4 w-4" />,
-  },
+  // {
+  //   label: "Debug Contracts",
+  //   href: "/debug",
+  //   icon: <BugAntIcon className="h-4 w-4" />,
+  // },
 ];
 
 export const HeaderMenuLinks = () => {
@@ -93,7 +93,7 @@ export const Header = () => {
             </ul>
           )}
         </div>
-        <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6 shrink-0">
+        <Link href="/" passHref className="hidden lg:flex items-center gap-2 shrink-0">
           <div className="flex relative w-10 h-10 rounded-full overflow-hidden">
             <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
           </div>
@@ -102,7 +102,7 @@ export const Header = () => {
           </div>
         </Link>
       </div>
-      <div className="w-auto lg:w-1/2">
+      <div className="w-auto">
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">
           <HeaderMenuLinks />
         </ul>
