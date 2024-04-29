@@ -30,7 +30,7 @@ const Home: NextPage = () => {
             isModalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >
-          <div className="bg-black/10 backdrop-blur-md rounded-lg p-8 transform transition-transform duration-500 w-1/2">
+          <div className="bg-black/10 backdrop-blur-md rounded-lg p-8 transform transition-transform duration-500 w-1/2 max-w-4xl">
             {isModalOpen && (
               <div className="relative">
                 <button onClick={closeModal} className="absolute top-0 left-0 m-2 text-white rotate-45">
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
             {/* Button to open modal */}
             <button className="mt-2 mb-8" onClick={openModal}>
               <button className="uppercase relative py-4 px-16 text-black text-base font-bold overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-700 before:to-purple-400 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
-                create a bet
+                place your bet
               </button>
             </button>
           </div>
