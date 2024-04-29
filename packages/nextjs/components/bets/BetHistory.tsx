@@ -187,7 +187,7 @@ const BetHistory = () => {
     setBetAmount(singleEventBetCreated.args[2].toString());
     acceptBet({
       args: [BigInt(singleEventBetCreated.args[0])],
-      value: BigInt(singleEventBetCreated.args[2].toString()),
+      value: BigInt(singleEventBetCreated.args[3].toString()),
     });
   };
 
