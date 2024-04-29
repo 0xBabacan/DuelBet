@@ -44,9 +44,9 @@ const FinishedBets = () => {
                 <thead>
                   <tr className="font-mono text-white border-white/60">
                     <th>Bet ID</th>
-                    <th>// Winner Address</th>
-                    <th>// Loser Address</th>
-                    <th>// Bet Amount</th>
+                    <th>Winner Address</th>
+                    <th>Loser Address</th>
+                    <th>Bet Amount</th>
                   </tr>
                 </thead>
                 <tbody>
