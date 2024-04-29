@@ -57,11 +57,17 @@ const Home: NextPage = () => {
         </div>
         <div className="">
           <div className="my-4 flex flex-col items-center gap-2 justify-center">
-            <div className="text-[56px] font-bold font-mono tracking-wide">Are you ready</div>
-            <div className="text-[56px] font-bold font-mono tracking-wide">to duel?</div>
+            <div className="flex">
+              <div className="text-[56px] font-bold">
+                It's time{" "}
+                <span className="text-[56px] font-extrabold bg-gradient-to-r from-blue-700 to-purple-400 text-transparent bg-clip-text">
+                  to duel.
+                </span>
+              </div>
+            </div>
             {/* Button to open modal */}
             <button onClick={openModal}>
-              <button className="uppercase relative py-2 px-8 text-black text-base font-bold nded-full overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-500 before:to-blue-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
+              <button className="uppercase relative py-2 px-8 text-black text-base font-bold nded-full overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-700 before:to-purple-400 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
                 create a bet
               </button>
             </button>
