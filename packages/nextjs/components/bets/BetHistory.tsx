@@ -208,8 +208,8 @@ const BetHistory = () => {
       {isLoadingHistory ? (
         <strong> Loading... </strong>
       ) : (
-        <div className=" border-purple-400/40 p-4 rounded">
-          <span className="mb-4 block text-2xl font-bold font-mono">Bet History</span>
+        <div className="p-4 rounded  border-purple-400/40">
+          <span className="block mb-4 font-mono text-2xl font-bold">Bet History</span>
           <div className="overflow-x-auto" style={{ flex: 1, fontSize: "1.0em" }}>
             <table className="table w-full border-white">
               <thead>
@@ -238,14 +238,14 @@ const BetHistory = () => {
                         <td>
                           <Address address={singleEventBetCreated.args[1]} />
                         </td>
-                        <td>{parseFloat(formatEther(singleEventBetCreated.args[2])).toFixed(4)}</td>
+                        <td>{parseFloat(formatEther(singleEventBetCreated.args[5])).toFixed(4)}</td>
                         <td>
                           {singleEventBetCreated.args[3] !== ""
                             ? (parseFloat(singleEventBetCreated.args[3].toString()) / 10 ** 18).toFixed(2)
                             : 0}
                         </td>
                         <td>{singleEventBetCreated.args[4] ? "higher" : "lower"}</td>
-                        <td>{formatTimestamp(parseInt(singleEventBetCreated.args[5].toString()))}</td>
+                        <td>{formatTimestamp(parseInt(singleEventBetCreated.args[2].toString()))}</td>
                         <td className="items-center text-center">
                           {isBetFinished ? (
                             <span>Finished</span>
