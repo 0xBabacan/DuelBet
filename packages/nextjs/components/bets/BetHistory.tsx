@@ -192,8 +192,11 @@ const BetHistory = () => {
     });
   };
 
-  const formatTimestamp = (timestamp: number): string => {
-    const date = new Date(timestamp * 1000);
+  const formatTimestamp = (timestamp: number | string): string => {
+    const date = new Date(timestamp);
+    if (isNaN(date.getTime())) {
+      return "Invalid Date";
+    }
     const options: Intl.DateTimeFormatOptions = {
       year: "2-digit",
       month: "2-digit",
@@ -246,7 +249,7 @@ const BetHistory = () => {
                             : 0}
                         </td>
                         <td>{singleEventBetCreated.args[5] ? "higher" : "lower"}</td>
-                        <td>{singleEventBetCreated.args[2]
+                        <td>{singleEventBetCreated.args[2] !== ""
                             ? formatTimestamp(parseInt(singleEventBetCreated.args[2].toString()))
                             : "Loading"}</td>
                         <td className="">
