@@ -34,3 +34,11 @@ p {
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+}

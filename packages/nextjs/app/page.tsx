@@ -34,13 +34,13 @@ const Home: NextPage = () => {
             {isModalOpen && (
               <div className="relative">
                 <button onClick={closeModal} className="absolute top-0 left-0 m-2 text-white rotate-45">
-                  <button title="Add New" class="group cursor-pointer outline-none hover:rotate-90 duration-300">
+                  <div className="group cursor-pointer outline-none hover:rotate-90 duration-300">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="50px"
                       height="50px"
                       viewBox="0 0 24 24"
-                      class="stroke-zinc-400 fill-none group-hover:fill-zinc-800 group-active:stroke-zinc-200 group-active:fill-zinc-600 group-active:duration-0 duration-300"
+                      className="stroke-zinc-400 fill-none group-hover:fill-zinc-800 group-active:stroke-zinc-200 group-active:fill-zinc-600 group-active:duration-0 duration-300"
                     >
                       <path
                         d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
                       <path d="M8 12H16" stroke-width="1.5"></path>
                       <path d="M12 16V8" stroke-width="1.5"></path>
                     </svg>
-                  </button>
+                  </div>
                 </button>
                 <CreateBet />
               </div>
@@ -69,9 +69,9 @@ const Home: NextPage = () => {
             </div>
             {/* Button to open modal */}
             <button className="mt-2 mb-8" onClick={openModal}>
-              <button className="uppercase relative py-4 px-16 text-black text-base font-bold overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-700 before:to-purple-400 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
+              <div className="uppercase relative py-4 px-16 text-black text-base font-bold overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-700 before:to-purple-400 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
                 place your bet
-              </button>
+              </div>
             </button>
           </div>
           <div className="grid gap-8">

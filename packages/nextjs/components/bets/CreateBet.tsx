@@ -35,7 +35,7 @@ const CreateBet = () => {
 
   return (
     <div className="px-8 py-12 space-y-3 text-white">
-      <div className="text-center mb-4">
+      <div className="mb-4 text-center">
         <span className="block text-2xl font-bold">Create a bet!</span>
       </div>
       <div className="flex flex-row items-center">
@@ -115,7 +115,7 @@ const CreateBet = () => {
           </button>
         </div>
       </div>
-      <div className="flex text-center font-bold" style={{ marginTop: "40px" }}>
+      <div className="flex font-bold text-center" style={{ marginTop: "40px" }}>
         {targetPrice && targetDate
           ? `ETH price will be ${isHigherChosen ? "higher" : "lower"} than ${targetPrice} at ${targetDate}.`
           : ""}
@@ -129,7 +129,7 @@ const CreateBet = () => {
         </button>
       </div>
       <div className="!mt-8 gap-2 flex flex-col border border-yellow-300 bg-yellow-300/30 rounded p-2">
-        <div className="flex text-sm items-center font-bold">⚠ PLEASE NOTE</div>
+        <div className="flex items-center text-sm font-bold">⚠ PLEASE NOTE</div>
         <div className="text-xs">
           Using chainlink in Sepolia Network to get the price cannot promise the price data at the target timestamp is
           the latest because the data feed will be updated if the price alternates more than the deviation threshold.

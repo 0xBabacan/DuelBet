@@ -37,7 +37,7 @@ const FinishedBets = () => {
         {isLoadingHistory ? (
           <strong> Loading... </strong>
         ) : (
-          <div className=" border-purple-400/40 p-4 rounded">
+          <div className=" border-purple-400/40 p-4 rounded max-h-72 overflow-y-auto">
             <span className="mb-4 block text-2xl font-bold font-mono">Finished Bets</span>
             <div className="overflow-x-auto" style={{ fontSize: "1.0em" }}>
               <table className="table w-full border-white">
