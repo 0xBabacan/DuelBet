@@ -41,10 +41,10 @@ contract DuelContract is Ownable {
 	event BetCreated(
 		uint256 indexed betId,
 		address indexed player1,
-		uint256 indexed amount,
+		uint256 indexed targetTimestamp,
+		uint256 amount,
 		uint256 targetPrice,
-		bool isHigherChosen,
-		uint256 targetTimestamp
+		bool isHigherChosen
 	);
 	event BetAccepted(
 		uint256 indexed betId,
@@ -92,7 +92,7 @@ contract DuelContract is Ownable {
 			amount: msg.value,
             targetTimestamp : _targetTimestamp
 		});
-		emit BetCreated(betIdCounter, msg.sender, msg.value, _targetPrice, _isHigherChosen, _targetTimestamp);
+		emit BetCreated(betIdCounter, msg.sender, _targetTimestamp, msg.value, _targetPrice, _isHigherChosen);
 	}
 
 	function acceptBet(uint256 _betId) external payable {

@@ -19,10 +19,14 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
     with a random private key in the .env file (then used on hardhat.config.ts)
     You can run the `yarn account` command to check your balance in every network.
   */
+
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("DuelContract", {
+  console.log(deployer);
+  console.log("\n 📡 Deploying DuelContract...\n");
+  
+  const deployResult = deploy("DuelContract", {
     from: deployer,
     // Contract constructor arguments
     args: [],
@@ -32,11 +36,15 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
     autoMine: true,
   });
 
+  console.log("\n 🎉 Deployed DuelContract to:", (await deployResult).address);
+
   // Get the deployed contract to interact with it after deploying.
   const duelContract = await hre.ethers.getContract<Contract>("DuelContract", deployer);
 
+  // console.log(duelContract.interface)
+
   // Transfer ownership to your front end address
-  const owner = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+  const owner = "0x4A09Bbe9B6ecfFa414E5788101c5B480bcb76569"
   console.log(`\n 🤹  Sending ownership to frontend address ${owner}\n`);
   const ownerTx = await duelContract.transferOwnership(owner);
   

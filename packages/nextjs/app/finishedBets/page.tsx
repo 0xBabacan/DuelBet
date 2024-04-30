@@ -32,17 +32,17 @@ const FinishedBets = () => {
   }, [betFinishedHistory]);
 
   return (
-    <div className="flex sm:flex-row pt-16 justify-center text-gray-800">
-      <div className="justify-center rounded-3xl px-8 py-12" style={{ backgroundColor: '#CD5B45' }}>
+    <div className="flex justify-center pt-16 text-gray-800 sm:flex-row">
+      <div className="justify-center px-8 py-12 rounded-3xl" style={{ backgroundColor: '#CD5B45' }}>
         {isLoadingHistory ? (
           <strong> Loading... </strong>
         ) : (
           <div>
-            <span className="text-center mb-4 block text-2xl font-bold">Finished Bets</span>
+            <span className="block mb-4 text-2xl font-bold text-center">Finished Bets</span>
             <div className="overflow-x-auto rounded-xl" style={{fontSize: '1.0em' }}>
               <table className="table w-full">
                 <thead>
-                  <tr className="bg-primary text-center" style={{ fontSize: '1.2em' }}>
+                  <tr className="text-center bg-primary" style={{ fontSize: '1.2em' }}>
                     <th>Bet ID</th>
                     <th>Winner Address</th>
                     <th>Loser Address</th>

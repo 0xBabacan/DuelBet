@@ -143,7 +143,7 @@ const BetHistory = () => {
   const priceFeed = new web3.eth.Contract(aggregatorV3InterfaceABI, addr);
 
   const handleFinish = async singleEventBetCreated => {
-    const targetTimestamp = BigInt(singleEventBetCreated.args[5].toString());
+    const targetTimestamp = BigInt(singleEventBetCreated.args[2].toString());
 
     try {
       const latestRoundData = await priceFeed.methods.latestRoundData().call();
@@ -165,10 +165,11 @@ const BetHistory = () => {
         }
 
         if (isRoundIdFound) {
-          const priceDataAtTarget = await priceFeed.methods.getRoundData(roundIdAtTarget).call();
-          const priceAtTargetAsFloat = parseFloat(priceDataAtTarget.answer.toString()) / 10 ** 8;
-          const priceAtTargetInWei = parseEther(priceAtTargetAsFloat.toString());
-          finishBet({ args: [BigInt(singleEventBetCreated.args[0]), priceAtTargetInWei] });
+          //const priceDataAtTarget = await priceFeed.methods.getRoundData(roundIdAtTarget).call();
+          //const priceAtTargetAsFloat = parseFloat(priceDataAtTarget.answer.toString()) / 10 ** 8;
+          //const priceAtTargetInWei = parseEther(priceAtTargetAsFloat.toString());
+          //finishBet({ args: [BigInt(singleEventBetCreated.args[0]), priceAtTargetInWei] });
+          finishBet({ args: [BigInt(singleEventBetCreated.args[0])] });
         } else console.error("Target Round ID couldnt be found with the latest round id:", latestRoundData.roundId);
       } else {
         console.error("Bet is not completed yet!");
@@ -184,10 +185,10 @@ const BetHistory = () => {
 
   const handleAccept = singleEventBetCreated => {
     setBetId(singleEventBetCreated.args[0].toString());
-    setBetAmount(singleEventBetCreated.args[2].toString());
+    setBetAmount(singleEventBetCreated.args[3].toString());
     acceptBet({
       args: [BigInt(singleEventBetCreated.args[0])],
-      value: BigInt(singleEventBetCreated.args[2].toString()),
+      value: BigInt(singleEventBetCreated.args[3].toString()),
     });
   };
 
@@ -215,12 +216,12 @@ const BetHistory = () => {
               <thead>
                 <tr className="font-mono text-white border-white/60">
                   <th>ID</th>
-                  <th>// Created by</th>
-                  <th>// Amount</th>
-                  <th>// Price</th>
-                  <th>// Bet</th>
-                  <th>// Deadline</th>
-                  <th>// Status</th>
+                  <th>Created by</th>
+                  <th>Amount</th>
+                  <th>Price</th>
+                  <th>Bet</th>
+                  <th>Deadline</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -238,14 +239,14 @@ const BetHistory = () => {
                         <td>
                           <Address address={singleEventBetCreated.args[1]} />
                         </td>
-                        <td>{parseFloat(formatEther(singleEventBetCreated.args[2])).toFixed(4)}</td>
+                        <td>{parseFloat(formatEther(singleEventBetCreated.args[3])).toFixed(4)}</td>
                         <td>
-                          {singleEventBetCreated.args[3] !== ""
-                            ? (parseFloat(singleEventBetCreated.args[3].toString()) / 10 ** 18).toFixed(2)
+                          {singleEventBetCreated.args[4] !== ""
+                            ? (parseFloat(singleEventBetCreated.args[4].toString()) / 10 ** 18).toFixed(2)
                             : 0}
                         </td>
-                        <td>{singleEventBetCreated.args[4] ? "higher" : "lower"}</td>
-                        <td>{formatTimestamp(parseInt(singleEventBetCreated.args[5].toString()))}</td>
+                        <td>{singleEventBetCreated.args[5] ? "higher" : "lower"}</td>
+                        <td>{formatTimestamp(parseInt(singleEventBetCreated.args[2].toString()))}</td>
                         <td className="items-center text-center">
                           {isBetFinished ? (
                             <span>Finished</span>
