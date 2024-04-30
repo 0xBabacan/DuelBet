@@ -254,7 +254,7 @@ const BetHistory = () => {
                             <div className="flex flex-col justify-center gap-2">
                               <span className="text-green-500">Accepted</span>
                               <button
-                                className="btn btn-secondary h-[2rem] min-h-[1.5rem]"
+                                className="btn bg-gradient-to-r from-blue-700 to-purple-400 h-[2rem] min-h-[1.5rem]"
                                 onClick={() => handleFinish(singleEventBetCreated)}
                               >
                                 Finish bet!
@@ -267,14 +267,14 @@ const BetHistory = () => {
                               <span>Waiting...</span>
                               {singleEventBetCreated.args[1] === connectedAddress ? (
                                 <button
-                                  className="btn btn-secondary h-[2rem] min-h-[1.5rem]"
+                                  className="btn bg-gradient-to-r from-blue-700 to-purple-400 h-[2rem] min-h-[1.5rem]"
                                   onClick={() => handleDelete(singleEventBetCreated)}
                                 >
                                   Delete bet!
                                 </button>
                               ) : (
                                 <button
-                                  className="btn btn-secondary h-[2rem] min-h-[1.5rem]"
+                                  className="btn bg-gradient-to-r from-blue-700 to-purple-400 h-[2rem] min-h-[1.5rem]"
                                   onClick={() => handleAccept(singleEventBetCreated)}
                                 >
                                   Accept bet!
