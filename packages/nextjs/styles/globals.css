@@ -35,10 +35,26 @@ p {
   filter: invert(1);
 }
 
-::-webkit-scrollbar-track {
-  background-color: transparent;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: rgb(0, 0, 0, 0.3);
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+/* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: white;
+  background-color: rgb(86, 77, 167, 0.6);
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
