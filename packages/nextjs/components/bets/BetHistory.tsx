@@ -239,7 +239,7 @@ const BetHistory = () => {
                         <td>
                           <Address address={singleEventBetCreated.args[1]} />
                         </td>
-                        <td>{parseFloat(formatEther(singleEventBetCreated.args[3])).toFixed(4)}</td>
+                        <td>{parseFloat(formatEther(singleEventBetCreated.args[3])).toFixed(8)}</td>
                         <td>
                           {singleEventBetCreated.args[4] !== ""
                             ? (parseFloat(singleEventBetCreated.args[4].toString()) / 10 ** 18).toFixed(2)
