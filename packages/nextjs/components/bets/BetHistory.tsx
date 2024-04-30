@@ -246,7 +246,9 @@ const BetHistory = () => {
                             : 0}
                         </td>
                         <td>{singleEventBetCreated.args[5] ? "higher" : "lower"}</td>
-                        <td>{formatTimestamp(parseInt(singleEventBetCreated.args[2].toString()))}</td>
+                        <td>{singleEventBetCreated.args[2]
+                            ? formatTimestamp(parseInt(singleEventBetCreated.args[2].toString()))
+                            : "Loading"}</td>
                         <td className="">
                           {isBetFinished ? (
                             <span className="text-yellow-500">Expired</span>
