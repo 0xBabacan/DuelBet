@@ -247,12 +247,12 @@ const BetHistory = () => {
                         </td>
                         <td>{singleEventBetCreated.args[5] ? "higher" : "lower"}</td>
                         <td>{formatTimestamp(parseInt(singleEventBetCreated.args[2].toString()))}</td>
-                        <td className="items-center text-center">
+                        <td className="">
                           {isBetFinished ? (
-                            <span>Finished</span>
+                            <span className="text-yellow-500">Expired</span>
                           ) : isBetAccepted ? (
-                            <div className="flex flex-col items-center justify-center gap-2">
-                              <span>Accepted</span>
+                            <div className="flex flex-col justify-center gap-2">
+                              <span className="text-green-500">Accepted</span>
                               <button
                                 className="btn btn-secondary h-[2rem] min-h-[1.5rem]"
                                 onClick={() => handleFinish(singleEventBetCreated)}
@@ -261,9 +261,9 @@ const BetHistory = () => {
                               </button>
                             </div>
                           ) : isBetDeleted ? (
-                            <span>Deleted</span>
+                            <span className="text-red-500">Deleted</span>
                           ) : (
-                            <div className="flex flex-col items-center justify-center gap-2">
+                            <div className="flex flex-col justify-center gap-2">
                               <span>Waiting...</span>
                               {singleEventBetCreated.args[1] === connectedAddress ? (
                                 <button
